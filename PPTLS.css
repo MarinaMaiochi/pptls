@@ -1,0 +1,38 @@
+
+body{
+    background-color: wheat;
+    display:flex;
+    flex-direction: column;
+    font-family: monospace;
+    align-items: center;
+    border: 0;
+}
+h1{
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+span{
+    padding-bottom: 30px;
+
+}
+.jogador{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer
+}
+.versus{
+    height: 80px;
+}
+
+.computador{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+}
+.huerotate { filter: hue-rotate(180deg); }
+
+.apagado{
+    opacity: 0.4;
+
+}
