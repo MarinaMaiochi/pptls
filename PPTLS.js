@@ -1,4 +1,6 @@
 let jogou = 0;
+let qtddJogadas = 3 ;
+let rodadaAtual = 0 ;
 
 const matriz = [['e','g','p','g','p'],['p','e','g','p','g'],['g','p','e','g','p'],['p','g','p','e','g'],['g','p','g','p','e']] ;
 
@@ -6,9 +8,9 @@ function quemGanhou (){
   const jog = document.querySelector(`.jogador:not(.apagado)`).getAttribute("data-n");
   const pc = document.querySelector(`.computador:not(.apagado)`).getAttribute("data-n");
  
-  console.info (jog + "x" + pc );
-  resultado = matriz[pc][jog];
-  console.info (resultado);
+  console.info (jog + "x" + pc ); // pode apagar
+  resultado = matriz[pc][jog];    // pode apagar
+  console.info (resultado);       // pode apagar
 
   if (resultado == 'e'){
     document.querySelector(`.empate`).classList.remove('some');
@@ -37,7 +39,10 @@ function quemGanhou (){
     divVerm.classList.add('bola');
     divGanhou.appendChild(divVerm);
   }
-  setTimeout(novaPartida, 1000);
+  setTimeout(proxJogada, 1000);
+  rodadaAtual++ ;
+  
+  naMelhorDe();
 }
 
 function jogadaPC (){
@@ -54,27 +59,29 @@ function jogadaJogador(event){
     escolhido.classList.remove('apagado');
     jogou++ ;
     console.info(jogou + 'é um?');
+    console.info(rodadaAtual + 'de' + qtddJogadas );
     jogadaPC();
   }
 }
 
-function novaPartida(){
+function proxJogada(){
   document.querySelector('.jogador:not(.apagado)').classList.add('apagado');
   document.querySelector('.computador:not(.apagado)').classList.add('apagado');
   jogou = 0;
-  console.info(jogou + 'é zer0?');
+  console.info(jogou + 'é zer0?');                            // pode apagar           
   document.querySelector(`.perdeu`).classList.add('some');
   document.querySelector(`.ganhou`).classList.add('some');
   document.querySelector(`.empate`).classList.add('some');
 }
 
-// function enterNoMelhorDe (event){
-//   if ( event.key == 'Enter') {
-//     document.querySelector('.doInput').blur() ;
-//     naMelhorDe ()
-//   }
-// }
-// document.querySelector('.doInput').addEventListener('keydown', enterNoMelhorDe);
+function enterNoInput(event){
+  if ( event.key == 'Enter') {
+    document.querySelector('.doInput').blur() ;
+    qtddJogadas = event.target.value ;
+    rodadaAtual = 0;
+  }
+}
+document.querySelector('.doInput').addEventListener('keydown', enterNoInput);
 
 const clicado = document.querySelectorAll('.jogador');
 for (i = 0 ; i <clicado.length ; i++){
@@ -82,15 +89,49 @@ for (i = 0 ; i <clicado.length ; i++){
 }
 
 // const inputQtddJogadas = document.querySelector('.doInput');
-// let qtddJogadas = inputQtddJogadas.value;
+//let qtddJogadas = inputQtddJogadas.value;
 
-// function naMelhorDe (){
-//   while (qtddJogadas>0){
-//     const clicado = document.querySelectorAll('.jogador');
-//     for (i = 0 ; i <clicado.length ; i++){
-//       clicado[i].addEventListener('click', jogadaJogador);
-//     }
+function naMelhorDe (){
+  if (rodadaAtual == qtddJogadas){
+    const verms = document.querySelectorAll('.vermelho')
+    const contadorVerm = verms.length ;
+    const azuls =  document.querySelectorAll('.azul')
+    const contadorAzul = azuls.length ;
+    const bcos =  document.querySelectorAll('.branco')
+    const contadorBcos = bcos.length ;
 
-//     novaPartida();
-//   }
-// }
+    document.querySelector('.vitoriaderrota').classList.remove('some');
+
+    if (contadorVerm>contadorAzul){
+      document.querySelector('.textoresult').innerText = "GANHOU" ;
+    } else if (contadorVerm<contadorAzul){
+      document.querySelector('.textoresult').innerText = "PERDEU" ;
+    } else if (contadorVerm==contadorAzul){
+      document.querySelector('.textoresult').innerText = "EMPATOU" ;
+    }
+    document.querySelector('.qtddMelhorDe').innerText = qtddJogadas ;
+    setTimeout(resetaTabuleiro, 2000);
+  }
+}
+
+function resetaTabuleiro(){
+
+  const verms = document.querySelectorAll('.vermelho')
+  const contadorVerm = verms.length ;
+  const azuls =  document.querySelectorAll('.azul')
+  const contadorAzul = azuls.length ;
+  const bcos =  document.querySelectorAll('.branco')
+  const contadorBcos = bcos.length ;
+
+  for (i = 0 ; i < contadorVerm ; i++){
+    verms[i].remove();
+  }
+  for (i = 0 ; i < contadorAzul ; i++){
+    azuls[i].remove();
+  }
+  for (i = 0 ; i < contadorBcos ; i++){
+    bcos[i].remove();
+  }
+  rodadaAtual = 0 ;
+  document.querySelector('.vitoriaderrota').classList.add('some');
+}

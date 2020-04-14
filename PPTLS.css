@@ -85,5 +85,8 @@ span{
 
 .doInput{
     width: 40px;
+}
 
+.melhor{
+    display: flex;
 }
