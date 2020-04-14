@@ -5,7 +5,9 @@ body{
     flex-direction: column;
     font-family: monospace;
     align-items: center;
+    justify-content: center;
     border: 0;
+    width: 90%;
 }
 h1{
     font-size: 20px;
@@ -15,24 +17,73 @@ span{
     padding-bottom: 30px;
 
 }
-.jogador{
+.token-jogada {
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    cursor: pointer
+    width: 60px;
+    height: 60px;
+    transition: ease-in-out opacity 0.1s;
+}
+.jogador{
+    cursor: pointer;
 }
 .versus{
-    height: 80px;
+    height: 60px;
 }
 
 .computador{
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    filter: hue-rotate(180deg);
 }
-.huerotate { filter: hue-rotate(180deg); }
 
 .apagado{
     opacity: 0.4;
+}
+
+.mensagem{
+    display: flex;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.some{
+    visibility: hidden;
+}
+
+.box{
+    width: 120px;
+    border: goldenrod solid 1px;
+    min-height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  
+}
+
+.mensagem>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bolinhas{
+    display: flex;
+
+}
+
+.bola{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+}
+.vermelho{
+    background-color: #a73839;
+}
+.branco{
+    background-color: seashell;
+}
+.azul{
+    background-color: #006968;
+}
+
+.doInput{
+    width: 40px;
 
 }

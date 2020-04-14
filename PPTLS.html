@@ -13,23 +13,41 @@
     <body>
         <h1>Pedra Papel Tesoura Spock Lagarto</h1>
         <div>
-            <span> Voce </span>
-            <img src="pedra.jpeg" alt="pedra" class="jogador jpedra apagado">
-            <img src="papel.jpeg" alt="papel" class="jogador jpapel apagado">
-            <img src="tesoura.jpeg" alt="tesoura" class="jogador jtesoura apagado">
-            <img src="spock.jpeg" alt="spock" class="jogador jspock apagado">
-            <img src="lagarto.jpeg" alt="lagarto" class="jogador jlagarto apagado">
+            <div> Você </div>
+            <img src="pedra.jpeg" alt="pedra" class="token-jogada jogador apagado" data-n="0">
+            <img src="papel.jpeg" alt="papel" class="token-jogada jogador apagado"data-n="1">
+            <img src="tesoura.jpeg" alt="tesoura" class="token-jogada jogador apagado"data-n="2">
+            <img src="spock.jpeg" alt="spock" class="token-jogada jogador apagado"data-n="3">
+            <img src="lagarto.jpeg" alt="lagarto" class="token-jogada jogador apagado"data-n="4">
         </div>
         <div>
             <img src="vs.png" alt="versus" class="versus">
         </div>
         <div>
-            <span> Computador </span>
-            <img src="pedra.jpeg" alt="pedra" class="computador huerotate cpedra apagado" data-n="0">
-            <img src="papel.jpeg" alt="papel" class="computador huerotate cpapel apagado" data-n="1">
-            <img src="tesoura.jpeg" alt="tesoura" class="computador huerotate ctesoura apagado" data-n="2">
-            <img src="spock.jpeg" alt="spock" class="computador huerotate cspock apagado" data-n="3">
-            <img src="lagarto.jpeg" alt="lagarto" class="computador huerotate clagarto apagado" data-n="4">
+            <div> Computador </div>
+            <img src="pedra.jpeg" alt="pedra" class="token-jogada computador apagado" data-n="0">
+            <img src="papel.jpeg" alt="papel" class="token-jogada computador  apagado" data-n="1">
+            <img src="tesoura.jpeg" alt="tesoura" class="token-jogada computador apagado" data-n="2">
+            <img src="spock.jpeg" alt="spock" class="token-jogada computador apagado" data-n="3">
+            <img src="lagarto.jpeg" alt="lagarto" class="token-jogada computador apagado" data-n="4">
+        </div>
+
+        <div>
+            <div> Melhor de: </div>
+            <input type="number" value="1" class="doInput" min="1" max="15">
+
+
+        </div>
+
+        <div id="resultadoJogada" class="mensagem">
+            <div class="box ganhou some"> Você Ganhou! </div>
+            <div class="box empate some"> Empate! </div>
+            <div class="box perdeu some"> Você Perdeu! </div>
+        </div>
+        <div class="bolinhas">
+            <div class="box g"></div>
+            <div class="box e"></div>
+            <div class="box p"></div>
         </div>
     
 
