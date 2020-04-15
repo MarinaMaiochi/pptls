@@ -10,10 +10,9 @@ body{
     width: 90%;
 }
 h1{
-    font-size: 20px;
+    font-size: 18px;
     padding-bottom: 10px;
 }
-
 .token-jogada {
     border-radius: 50%;
     width: 50px;
@@ -26,49 +25,40 @@ h1{
 .versus{
     height: 60px;
 }
-
 .computador{
     filter: hue-rotate(180deg);
 }
-
 .apagado{
     opacity: 0.4;
 }
-
-.mensagem{
-    display: flex;
-    font-size: 16px;
-    margin: 10px;
-}
-
 .some{
     visibility: hidden;
 }
-
 .box{
-    width: 120px;
+    width: 100px;
     border: goldenrod solid 1px;
-    min-height: 30px;
+    min-height: 26px;
     display: flex;
     flex-wrap: wrap;
-  
 }
-
-.mensagem>div{
+.mensagemJogada{
+    display: flex;
+    font-size: 14px;
+    margin: 10px;
+}
+.mensagemJogada>div{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .bolinhas{
     display: flex;
-
 }
-
 .bola{
     border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    margin: 4px;
+    width: 18px;
+    height: 18px;
+    margin: 2px;
 }
 .vermelho{
     background-color: #a73839;
@@ -79,11 +69,34 @@ h1{
 .azul{
     background-color: #006968;
 }
-
 .doInput{
-    width: 40px;
+    width: 30px;
+    height: 22px;
+    margin: 10px 10px 10px 0;
 }
 
-.melhor{
+.divMelhor{
     display: flex;
+}
+
+.textoLinhaMelhorDe{
+    font-size: 14px;
+    font-family: monospace;  ;
+}
+.resultado{
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.divtextoBatalha{
+    font-size: 16px;
+}
+.jogJogador{
+    color: #a73839;
+    font-weight: bold;
+}
+
+.jogPC{
+    color: #006968;
+    font-weight: bold;
 }

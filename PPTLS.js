@@ -39,10 +39,14 @@ function quemGanhou (){
     divVerm.classList.add('bola');
     divGanhou.appendChild(divVerm);
   }
-  setTimeout(proxJogada, 1000);
-  rodadaAtual++ ;
   
-  naMelhorDe();
+  
+ 
+  textoDaBatalha();
+  setTimeout(proxJogada, 2000);
+  rodadaAtual++ ;
+  setTimeout(naMelhorDe, 1000);
+  
 }
 
 function jogadaPC (){
@@ -72,6 +76,7 @@ function proxJogada(){
   document.querySelector(`.perdeu`).classList.add('some');
   document.querySelector(`.ganhou`).classList.add('some');
   document.querySelector(`.empate`).classList.add('some');
+  document.querySelector('.textoBatalha').classList.add('some');
 }
 
 function enterNoInput(event){
@@ -135,3 +140,104 @@ function resetaTabuleiro(){
   rodadaAtual = 0 ;
   document.querySelector('.vitoriaderrota').classList.add('some');
 }
+
+function textoDaBatalha(){
+  const escolhaJog = document.querySelector(`.jogador:not(.apagado)`).getAttribute("data-n");
+  const escolhaPc = document.querySelector(`.computador:not(.apagado)`).getAttribute("data-n");
+  const itemJog = document.querySelector('.jogJogador');
+  const action = document.querySelector('.oqAcontece');
+  const itemPc = document.querySelector('.jogPC');
+  
+  if (escolhaJog == 0){
+    itemJog.innerText = "PEDRA";
+    if (escolhaPc == 0){
+      action.innerText = "=";
+      itemPc.innerText = "PEDRA";
+    } else if (escolhaPc == 1){
+      action.innerText = "é coberta pelo";
+      itemPc.innerText = "PAPEL";
+    } else if (escolhaPc == 2){
+      action.innerText = "destrói a";
+      itemPc.innerText = "TESOURA";
+    } else if (escolhaPc == 3){
+      action.innerText = "é vaporizada pelo";
+      itemPc.innerText = "SPOCK";
+    } else if (escolhaPc == 4){
+      action.innerText = "esmaga o";
+      itemPc.innerText = "LAGARTO";
+    } 
+  } else if (escolhaJog == 1){
+    itemJog.innerText = "PAPEL";
+    if (escolhaPc == 0){
+      action.innerText = "cobre a";
+      itemPc.innerText = "PEDRA";
+    } else if (escolhaPc == 1){
+      action.innerText = "=";
+      itemPc.innerText = "PAPEL";
+    } else if (escolhaPc == 2){
+      action.innerText = "é cortado pela";
+      itemPc.innerText = "TESOURA";
+    } else if (escolhaPc == 3){
+      action.innerText = "desaprova o";
+      itemPc.innerText = "SPOCK";
+    } else if (escolhaPc == 4){
+      action.innerText = "é comido pelo";
+      itemPc.innerText = "LAGARTO" ;
+    }  
+  } else if (escolhaJog == 2){
+    itemJog.innerText = "TESOURA";
+    if (escolhaPc == 0){
+      action.innerText = "é destruida pela";
+      itemPc.innerText = "PEDRA";
+    } else if (escolhaPc == 1){
+      action.innerText = "corta o";
+      itemPc.innerText = "PAPEL";
+    } else if (escolhaPc == 2){
+      action.innerText = "=";
+      itemPc.innerText = "TESOURA";
+    } else if (escolhaPc == 3){
+      action.innerText = "é quebrada pelo";
+      itemPc.innerText = "SPOCK";
+    } else if (escolhaPc == 4){
+      action.innerText = "decapita o";
+      itemPc.innerText = "LAGARTO";      
+    }  
+  } else if (escolhaJog == 3){
+    itemJog.innerText = "SPOCK";
+    if (escolhaPc == 0){
+      action.innerText = "vaporiza a";
+      itemPc.innerText = "PEDRA";
+    } else if (escolhaPc == 1){
+      action.innerText = "é desaprovado pelo";
+      itemPc.innerText = "PAPEL";
+    } else if (escolhaPc == 2){
+      action.innerText = "quebra a";
+      itemPc.innerText = "TESOURA";
+    } else if (escolhaPc == 3){
+      action.innerText = "=";
+      itemPc.innerText = "SPOCK";
+    } else if (escolhaPc == 4){
+      action.innerText = "é envenenado pelo";
+      itemPc.innerText = "LAGARTO";
+    }  
+  } else if (escolhaJog == 4){
+    itemJog.innerText = "LAGARTO";
+    if (escolhaPc == 0){
+      action.innerText = "é esmagado pela";
+      itemPc.innerText = "PEDRA";
+    } else if (escolhaPc == 1){
+      action.innerText = "come o";
+      itemPc.innerText = "PAPEL";
+    } else if (escolhaPc == 2){
+      action.innerText = "é decapitado pela";
+      itemPc.innerText = "TESOURA";
+    } else if (escolhaPc == 3){
+      action.innerText = "envenena o";
+      itemPc.innerText = "SPOCK";
+    } else if (escolhaPc == 4){
+      action.innerText = "=";
+      itemPc.innerText = "LAGARTO";    
+    }  
+  }
+  document.querySelector('.textoBatalha').classList.remove('some');
+}  
