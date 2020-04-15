@@ -10,7 +10,7 @@ body{
     width: 90%;
 }
 h1{
-    font-size: 18px;
+    font-size: 14px;
     padding-bottom: 10px;
 }
 .token-jogada {
@@ -23,7 +23,7 @@ h1{
     cursor: pointer;
 }
 .versus{
-    height: 60px;
+    height: 40px;
 }
 .computador{
     filter: hue-rotate(180deg);
