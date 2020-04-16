@@ -1,9 +1,9 @@
 
 body{
-    background-color: wheat;
+    font-family: 'Baloo Paaji 2', cursive;
+    background-color: black;
     display:flex;
     flex-direction: column;
-    font-family: monospace;
     align-items: center;
     justify-content: center;
     border: 0;
@@ -11,7 +11,14 @@ body{
 }
 h1{
     font-size: 14px;
-    padding-bottom: 10px;
+    margin: 10px;
+    color: white;
+    
+}
+.divImg{
+    margin: 2px;
+    padding: 0px;
+    height: 50px;
 }
 .token-jogada {
     border-radius: 50%;
@@ -21,12 +28,27 @@ h1{
 }
 .jogador{
     cursor: pointer;
+    filter: hue-rotate(175deg) brightness(115%) saturate(5);
 }
 .versus{
     height: 40px;
+    filter: invert(100%);
 }
 .computador{
-    filter: hue-rotate(180deg);
+    filter: hue-rotate(30deg);
+}
+.vs{
+    display: flex;
+    width: 260px;
+    justify-content: space-between;
+}
+.vc{
+    color: goldenrod;
+}
+.pc{
+    color:#9c36db;
+    display: flex;
+    align-items: flex-end;
 }
 .apagado{
     opacity: 0.4;
@@ -36,10 +58,11 @@ h1{
 }
 .box{
     width: 100px;
-    border: goldenrod solid 1px;
+    border: white solid 1px;
     min-height: 26px;
     display: flex;
     flex-wrap: wrap;
+    color: white;
 }
 .mensagemJogada{
     display: flex;
@@ -58,45 +81,58 @@ h1{
     border-radius: 50%;
     width: 18px;
     height: 18px;
-    margin: 2px;
+    margin: 3px;
 }
 .vermelho{
-    background-color: #a73839;
+    background-color: goldenrod;
 }
 .branco{
     background-color: seashell;
 }
 .azul{
-    background-color: #006968;
+    background-color: #9c36db;
 }
 .doInput{
     width: 30px;
-    height: 22px;
+    height: 18px;
     margin: 10px 10px 10px 0;
 }
 
 .divMelhor{
     display: flex;
+    align-items: center;
 }
 
 .textoLinhaMelhorDe{
     font-size: 14px;
-    font-family: monospace;  ;
+    color: white;
+    margin-right: 4px;
 }
 .resultado{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bolder;
+    color: white;
+    margin-right: 4px;
+}
+.resultado>p{
+    margin: 0px;
+    padding: 0px;
 }
 
 .divtextoBatalha{
     font-size: 16px;
+    color: white;
+}
+.divtextoBatalha>p{
+    margin: 0px;
+    padding: 0px;
 }
 .jogJogador{
-    color: #a73839;
+    color:goldenrod;
     font-weight: bold;
 }
 
 .jogPC{
-    color: #006968;
+    color: #9c36db;
     font-weight: bold;
 }
